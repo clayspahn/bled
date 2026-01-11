@@ -16,7 +16,7 @@ body {
   line-height: 1.1;
   overflow-x: hidden;
 
-  /* fluid font scaling closer to original */
+  /* fluid font scaling */
   font-size: clamp(27px, 2.2vw, 34px);
 
   /* keep font weight consistent */
@@ -43,21 +43,6 @@ a:hover {
   color: #aaaaaa;
 }
 
-/* HOMEPAGE IMAGE */
-.homepage-image {
-  position: fixed;
-  bottom: 0rem;     
-  right: 0rem;       
-  max-width: 30%;
-  z-index: 10;
-}
-
-.homepage-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* FADE IN EFFECT */
 .homepage-image,
 .info {
@@ -71,44 +56,26 @@ a:hover {
   to   { opacity: 1; }
 }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-
-  .info {
-    width: 100%;
-    padding: 1rem; /* mobile padding */
-    box-sizing: border-box;
-  }
-
-  .homepage-image {
-    position: relative;
-    max-width: 100%;
-    bottom: auto;
-    right: auto;
-    margin: 0;
-    padding: 1rem;   /* mobile padding */
-  }
-
-  .homepage-image img {
-    width: 100%;      /* fill container */
-    height: auto;
-    display: block;
-    margin: 0;
-  }
+/* HOMEPAGE IMAGE */
+.homepage-image {
+  position: fixed;
+  bottom: 0rem;
+  right: 0rem;
+  max-width: 30%;
+  cursor: zoom-in;
+  z-index: 10;
+  transition: transform 0.3s ease;
 }
 
-/* Desktop only hover cursor and zoom effect */
-@media (min-width: 769px) {
-  .homepage-image {
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-    position: fixed;
-    bottom: 0rem;
-    right: 0rem;
-    max-width: 30%;
-    z-index: 10;
-  }
+.homepage-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
 
+/* CLICK-TO-ZOOM (desktop only) */
+@media (min-width: 769px) {
   .homepage-image.enlarged {
     position: fixed;
     top: 0;
@@ -122,28 +89,25 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    padding: 0rem;
     box-sizing: border-box;
     background-color: transparent; /* no black overlay */
   }
 
   .homepage-image.enlarged img {
-    width: auto;
     max-width: 90%;
-    height: auto;
     max-height: 90%;
-    display: block;
-    transition: transform 0.3s ease;
-    transform: scale(1.05); /* subtle zoom effect */
-  }
-
-  .homepage-image img {
-    transition: transform 0.3s ease;
+    transform: scale(1.05); /* subtle zoom */
   }
 }
 
-/* Mobile responsive */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
+  .info {
+    width: 100%;
+    padding: 1rem;
+  }
+
   .homepage-image {
     position: relative;
     width: 100%;
@@ -151,10 +115,11 @@ a:hover {
     margin-top: 1rem;
     padding: 1rem;
     display: block;
+    cursor: default; /* no zoom on mobile */
   }
 
   .homepage-image img {
-    width: 100vw;
+    width: 100vw;  /* fill mobile viewport */
     height: auto;
     display: block;
   }
