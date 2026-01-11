@@ -103,8 +103,8 @@ a:hover {
     cursor: zoom-in;
     transition: transform 0.3s ease;
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 0rem;
+    right: 0rem;
     max-width: 30%;
     z-index: 10;
   }
