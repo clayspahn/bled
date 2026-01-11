@@ -69,7 +69,7 @@ a:hover {
 @media (max-width: 768px) {
   .info {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .homepage-image {
@@ -77,7 +77,8 @@ a:hover {
     max-width: 100%;
     bottom: auto;
     right: auto;
-    margin: 0;       /* remove top margin so it goes edge-to-edge */
+    margin: 0; 
+    padding: 1rem;
   }
 
   .homepage-image img {
