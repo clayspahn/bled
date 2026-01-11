@@ -1,4 +1,4 @@
-/* FONT */
+/* ---------------- FONT ---------------- */
 @font-face {
   font-family: "Diatype Variable";
   src: url("ABCDiatype-Regular.otf") format("opentype");
@@ -7,43 +7,57 @@
   letter-spacing: 0.02em;
 }
 
+/* ---------------- BODY ---------------- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Diatype Variable", sans-serif;
   background-color: #fcfcfc;
-  color: #444444;
+  color: #000000;
   line-height: 1.1;
   overflow-x: hidden;
 
-  /* fluid font scaling */
   font-size: clamp(27px, 2.2vw, 34px);
-
-  /* keep font weight consistent */
   font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* INFO TEXT */
+/* ---------------- INFO TEXT ---------------- */
 .info {
-  width: 42%;          /* desktop width */
-  padding: 1.5rem;     /* desktop padding */
+  width: 42%;
+  padding: 1.5rem;
   box-sizing: border-box;
 }
 
-/* LINKS */
+/* ---------------- LINKS ---------------- */
 a {
-  color: #444444;
+  color: #000000;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #aaaaaa;
+  color: #888888;
 }
 
-/* FADE IN EFFECT */
+/* ---------------- HOMEPAGE IMAGE ---------------- */
+.homepage-image {
+  position: fixed;
+  bottom: 0rem;
+  right: 0rem;
+  max-width: 30%;
+  z-index: 10;
+  cursor: zoom-in;
+}
+
+.homepage-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------- FADE IN ---------------- */
 .homepage-image,
 .info {
   opacity: 0;
@@ -56,32 +70,15 @@ a:hover {
   to   { opacity: 1; }
 }
 
-/* HOMEPAGE IMAGE */
-.homepage-image {
-  position: fixed;
-  bottom: 0rem;
-  right: 0rem;
-  max-width: 30%;
-  cursor: zoom-in;
-  z-index: 10;
-  transition: transform 0.3s ease;
-}
-
-.homepage-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-/* CLICK-TO-ZOOM (desktop only) */
+/* ---------------- DESKTOP FULLSCREEN ZOOM ---------------- */
 @media (min-width: 769px) {
+
   .homepage-image.enlarged {
     position: fixed;
     top: 0;
     left: 0;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
     z-index: 9999;
@@ -91,36 +88,46 @@ a:hover {
     align-items: center;
     padding: 0rem;
     box-sizing: border-box;
-    background-color: transparent; /* no black overlay */
+    background-color: transparent; /* no overlay */
   }
 
   .homepage-image.enlarged img {
+    width: auto;
     max-width: 90%;
+    height: auto;
     max-height: 90%;
-    transform: scale(1.05); /* subtle zoom */
+    display: block;
+  }
+
+  /* Blur everything else */
+  body.blurred > *:not(.homepage-image) {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
   }
 }
 
-/* MOBILE RESPONSIVE */
+/* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
+
   .info {
     width: 100%;
     padding: 1rem;
+    box-sizing: border-box;
   }
 
   .homepage-image {
     position: relative;
-    width: 100%;
     max-width: 100%;
     margin-top: 1rem;
     padding: 1rem;
-    display: block;
-    cursor: default; /* no zoom on mobile */
+    cursor: auto;
   }
 
   .homepage-image img {
-    width: 100vw;  /* fill mobile viewport */
+    width: 100vw;
     height: auto;
     display: block;
+    margin: 0;
   }
 }
