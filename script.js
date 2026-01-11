@@ -1,9 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only on desktop
+  // Only for desktop
   if (window.innerWidth > 768) {
 
-    // --- Smooth scroll ---
+    const imageContainer = document.querySelector('.homepage-image');
+    const body = document.body;
+
+    if (imageContainer) {
+      imageContainer.addEventListener('click', () => {
+        imageContainer.classList.toggle('enlarged');
+        body.classList.toggle('blurred'); // blur background when zoomed
+      });
+    }
+
+    // -------- Smooth scroll ----------
     let current = window.scrollY;
     let target = window.scrollY;
     let ease = 0.12;
@@ -24,14 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animateScroll();
-
-    // --- Click-to-zoom ---
-    const imageContainer = document.querySelector('.homepage-image');
-    if (imageContainer) {
-      imageContainer.addEventListener('click', () => {
-        imageContainer.classList.toggle('enlarged');
-      });
-    }
   }
 
 });
