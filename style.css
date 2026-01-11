@@ -13,10 +13,10 @@ body {
   font-family: "Diatype Variable", sans-serif;
   background-color: #fcfcfc;
   color: #444444;
-  line-height: 1.15;
+  line-height: 1.2;
   overflow-x: hidden;
   /* fluid font scaling: min 16px, preferred 2.2vw, max 22px */
-  font-size: clamp(26px, 2.2vw, 34px);
+  font-size: clamp(27px, 2.2vw, 34px);
 }
 
 /* INFO TEXT */
