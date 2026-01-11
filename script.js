@@ -22,3 +22,12 @@ if (window.innerWidth > 768) {
 
   animateScroll();
 }
+
+<script>
+  if (window.innerWidth > 768) {
+    const imageContainer = document.querySelector('.homepage-image');
+    imageContainer.addEventListener('click', () => {
+      imageContainer.classList.toggle('enlarged');
+    });
+  }
+</script>
