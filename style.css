@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-family: "Diatype Variable", sans-serif;
   background-color: #fcfcfc;
-  color: #000000;
+  color: #222222;
   line-height: 1.15;
   overflow-x: hidden;
   /* fluid font scaling: min 16px, preferred 2.2vw, max 22px */
@@ -20,14 +20,14 @@ body {
 
 /* INFO TEXT */
 .info {
-  width: 32%;
+  width: 38%;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
 /* LINKS */
 a {
-  color: #000000;
+  color: #222222;
   text-decoration: none;
   transition: color 0.3s ease;
 }
