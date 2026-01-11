@@ -16,7 +16,6 @@ body {
   color: #000000;
   line-height: 1.1;
   overflow-x: hidden;
-
   font-size: clamp(27px, 2.2vw, 34px);
   font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
   -webkit-font-smoothing: antialiased;
@@ -44,11 +43,10 @@ a:hover {
 /* ---------------- HOMEPAGE IMAGE ---------------- */
 .homepage-image {
   position: fixed;
-  bottom: 0rem;
-  right: 0rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   max-width: 30%;
   z-index: 10;
-  cursor: zoom-in;
 }
 
 .homepage-image img {
@@ -70,8 +68,6 @@ a:hover {
   to   { opacity: 1; }
 }
 
-
-
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 768px) {
 
@@ -83,16 +79,17 @@ a:hover {
 
   .homepage-image {
     position: relative;
+    width: 100%;
     max-width: 100%;
     margin-top: 1rem;
     padding: 1rem;
-    cursor: auto;
   }
 
   .homepage-image img {
     width: 100vw;
     height: auto;
     display: block;
-    margin: 1rem;
+    margin: 0;
   }
 }
+
