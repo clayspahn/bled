@@ -1,19 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only for desktop
+  // Only desktop smooth scroll
   if (window.innerWidth > 768) {
 
-    const imageContainer = document.querySelector('.homepage-image');
-    const body = document.body;
-
-    if (imageContainer) {
-      imageContainer.addEventListener('click', () => {
-        imageContainer.classList.toggle('enlarged');
-        body.classList.toggle('blurred'); // blur background when zoomed
-      });
-    }
-
-    // -------- Smooth scroll ----------
     let current = window.scrollY;
     let target = window.scrollY;
     let ease = 0.12;
