@@ -1,4 +1,4 @@
-/* ---------------- FONT ---------------- */
+/* FONT */
 @font-face {
   font-family: "Diatype Variable";
   src: url("ABCDiatype-Regular.otf") format("opentype");
@@ -7,55 +7,56 @@
   letter-spacing: 0.02em;
 }
 
-/* ---------------- BODY ---------------- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Diatype Variable", sans-serif;
   background-color: #fcfcfc;
-  color: #000000;
+  color: #444444;
   line-height: 1.1;
   overflow-x: hidden;
+
   font-size: clamp(27px, 2.2vw, 34px);
   font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---------------- INFO TEXT ---------------- */
+/* INFO TEXT */
 .info {
   width: 42%;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
-/* ---------------- LINKS ---------------- */
+/* LINKS */
 a {
-  color: #000000;
+  color: #444444;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #888888;
+  color: #aaaaaa;
 }
 
-/* ---------------- HOMEPAGE IMAGE ---------------- */
+/* HOMEPAGE IMAGE (Desktop) */
 .homepage-image {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 0;
+  right: 0;
   max-width: 30%;
   z-index: 10;
 }
 
+/* IMAGE ELEMENT */
 .homepage-image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* ---------------- FADE IN ---------------- */
+/* FADE IN EFFECT */
 .homepage-image,
 .info {
   opacity: 0;
@@ -68,28 +69,27 @@ a:hover {
   to   { opacity: 1; }
 }
 
-/* ---------------- MOBILE ---------------- */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-
   .info {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem; /* mobile padding */
     box-sizing: border-box;
   }
 
   .homepage-image {
     position: relative;
-    width: 100%;
+    width: auto;
     max-width: 100%;
-    margin-top: 1rem;
-    padding: 1rem;
+    margin: 1rem auto 0 auto; /* top margin + center horizontally */
+    padding: 0; /* remove extra padding */
+    display: block;
   }
 
   .homepage-image img {
-    width: 100vw;
+    width: calc(100% - 2rem); /* full width minus info padding left/right */
+    margin: 0 auto;
     height: auto;
     display: block;
-    margin: 0;
   }
 }
-
