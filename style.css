@@ -1,7 +1,7 @@
 /* FONT */
 @font-face {
   font-family: "Diatype Variable";
-  src: url("fonts/DiatypeVariable.woff2") format("woff2");
+  src: url("fonts/ABCDiatype-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
