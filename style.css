@@ -15,9 +15,7 @@ body {
   color: #444444;
   line-height: 1.2;
   overflow-x: hidden;
-  /* fluid font scaling: min 16px, preferred 2.2vw, max 22px */
-  font-size: clamp(27px, 2.2vw, 34px);
-  font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
+  font-size: clamp(27px, 34px);
 }
 
 }
@@ -80,7 +78,7 @@ a:hover {
     max-width: 100%;
     bottom: auto;
     right: auto;
-    margin: 0; 
+    margin: 1; 
     padding: 1rem;
   }
 
