@@ -15,15 +15,20 @@ body {
   color: #444444;
   line-height: 1.2;
   overflow-x: hidden;
-  font-size: clamp(27px, 34px);
-}
 
+  /* fluid font scaling */
+  font-size: clamp(18px, 2.5vw, 27px);
+
+  /* keep font weight consistent */
+  font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* INFO TEXT */
 .info {
-  width: 42%;
-  padding: 1.5rem;
+  width: 42%;          /* desktop width */
+  padding: 1.5rem;     /* desktop padding */
   box-sizing: border-box;
 }
 
@@ -41,8 +46,8 @@ a:hover {
 /* HOMEPAGE IMAGE */
 .homepage-image {
   position: fixed;
-  bottom: 0rem;
-  right: 0rem;
+  bottom: 1rem;      /* space from bottom */
+  right: 1rem;       /* space from right */
   max-width: 30%;
   z-index: 10;
 }
@@ -68,9 +73,11 @@ a:hover {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
+
   .info {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem; /* mobile padding */
+    box-sizing: border-box;
   }
 
   .homepage-image {
@@ -78,13 +85,14 @@ a:hover {
     max-width: 100%;
     bottom: auto;
     right: auto;
-    margin: 1; 
-    padding: 1rem;
+    margin: 0;       /* remove invalid margin */
+    padding: 1rem;   /* padding inside container */
   }
 
   .homepage-image img {
-    width: 100vw;     /* full viewport width */
+    width: 100%;      /* fill container, not full viewport */
     height: auto;
     display: block;
+    margin: 0;
   }
 }
