@@ -24,10 +24,14 @@ if (window.innerWidth > 768) {
 }
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 768) {
     const imageContainer = document.querySelector('.homepage-image');
-    imageContainer.addEventListener('click', () => {
-      imageContainer.classList.toggle('enlarged');
-    });
+    if (imageContainer) {
+      imageContainer.addEventListener('click', () => {
+        imageContainer.classList.toggle('enlarged');
+      });
+    }
   }
+});
 </script>
