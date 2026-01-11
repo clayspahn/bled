@@ -17,7 +17,7 @@ body {
   overflow-x: hidden;
 
   /* fluid font scaling closer to original */
-  font-size: clamp(22px, 2.2vw, 34px);
+  font-size: clamp(27px, 2.2vw, 34px);
 
   /* keep font weight consistent */
   font-variation-settings: 'wght' 400, 'slnt' 0, 'MONO' 0;
@@ -46,8 +46,8 @@ a:hover {
 /* HOMEPAGE IMAGE */
 .homepage-image {
   position: fixed;
-  bottom: 1.5rem;      /* match info padding */
-  right: 1.5rem;       /* match info padding */
+  bottom: 1rem;     
+  right: 1rem;       
   max-width: 30%;
   z-index: 10;
 }
