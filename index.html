@@ -57,3 +57,11 @@
 <div class="homepage-image">
   <img src="Bled-Image.jpg.webp" alt="Bled Image">
 </div>
+<script>
+  if (window.innerWidth > 768) {
+    const imageContainer = document.querySelector('.homepage-image');
+    imageContainer.addEventListener('click', () => {
+      imageContainer.classList.toggle('enlarged');
+    });
+  }
+</script>
