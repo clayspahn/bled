@@ -14,12 +14,12 @@ body {
   color: #000000;
   line-height: 1.3;
   overflow-x: hidden;
-  font-size: 30pt;
+  font-size: 60pt;
 }
 
 /* INFO TEXT */
 .info {
-  width: 33%;
+  width: 30%;
   padding: 2rem;
   box-sizing: border-box;
 }
