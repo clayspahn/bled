@@ -81,7 +81,7 @@ a:hover {
     position: relative;
     width: auto;
     max-width: 100%;
-    margin: 1rem auto 0 auto; /* top margin + center horizontally */
+    margin: 1rem auto 1rem auto; /* top margin + center horizontally */
     padding: 0; /* remove extra padding */
     display: block;
   }
