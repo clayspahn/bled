@@ -40,7 +40,7 @@ a {
 }
 
 a:hover {
-  color: #888888;
+  color: #aaaaaa;
 }
 
 /* HOMEPAGE IMAGE */
@@ -131,3 +131,20 @@ a:hover {
     display: block;
   }
 }
+
+<!-- other HTML content -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth > 768) {
+    const imageContainer = document.querySelector('.homepage-image');
+    if (imageContainer) {
+      imageContainer.addEventListener('click', () => {
+        imageContainer.classList.toggle('enlarged');
+      });
+    }
+  }
+});
+</script>
+</body>
+</html>
