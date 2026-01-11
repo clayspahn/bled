@@ -105,23 +105,23 @@ a:hover {
   }
 
   .homepage-image.enlarged {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    z-index: 9999;
-    cursor: zoom-out;
-    background-color: rgba(0,0,0,0.8); /* dark overlay */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
-    box-sizing: border-box;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;      /* optional: keep proportions */
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 9999;
+  cursor: zoom-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: transparent; /* removed black overlay */
+}
+
 
   .homepage-image.enlarged img {
     width: auto;
@@ -148,3 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
+.homepage-image img {
+  transition: transform 0.3s ease;
+}
+
+.homepage-image.enlarged img {
+  transform: scale(1.05); /* subtle zoom */
+}
