@@ -27,6 +27,7 @@ body {
   width: 47%;
   padding: 1.5rem;
   box-sizing: border-box;
+  display: inline-block;
 }
 
 /* LINKS */
