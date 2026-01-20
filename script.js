@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only desktop smooth scroll
+  // Smooth scroll (unchanged)
   if (window.innerWidth > 768) {
 
     let current = window.scrollY;
@@ -24,5 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animateScroll();
   }
+
+  // Client hover image swap
+  const clients = document.querySelectorAll(".client");
+  const homepageImage = document.getElementById("homepageImage");
+  const defaultSrc = homepageImage.src;
+
+  clients.forEach(client => {
+    client.addEventListener("mouseenter", () => {
+      const img = client.getAttribute("data-image");
+      if (img) homepageImage.src = `/${img}`;
+    });
+
+    client.addEventListener("mouseleave", () => {
+      homepageImage.src = defaultSrc;
+    });
+  });
 
 });
