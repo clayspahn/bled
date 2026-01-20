@@ -25,25 +25,30 @@ document.addEventListener("DOMContentLoaded", () => {
     animateScroll();
   }
 
-  // Client hover image swap (NO flicker)
+  // Client hover image swap (NO flicker, link-only)
   const homepageImage = document.getElementById("homepageImage");
   const defaultSrc = homepageImage.src;
-
   const clients = document.querySelectorAll(".client");
-  const clientsContainer = clients[0]?.parentElement;
 
   clients.forEach(client => {
+
     client.addEventListener("mouseenter", () => {
       const img = client.getAttribute("data-image");
       if (img) homepageImage.src = `/${img}`;
     });
-  });
 
-  // Reset ONLY when leaving the entire clients block
-  if (clientsContainer) {
-    clientsContainer.addEventListener("mouseleave", () => {
+    client.addEventListener("mouseleave", (e) => {
+      const next = e.relatedTarget;
+
+      // If moving directly to another client, do NOTHING
+      if (next && next.classList && next.classList.contains("client")) {
+        return;
+      }
+
+      // Otherwise reset
       homepageImage.src = defaultSrc;
     });
-  }
+
+  });
 
 });
