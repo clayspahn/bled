@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     animateScroll();
   }
 
-  // Client hover image swap (NO flicker, link-only)
+  // Desktop-only client hover image swap
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!canHover) return;
+
   const homepageImage = document.getElementById("homepageImage");
   const defaultSrc = homepageImage.src;
   const clients = document.querySelectorAll(".client");
@@ -40,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     client.addEventListener("mouseleave", (e) => {
       const next = e.relatedTarget;
 
-      // If moving directly to another client, do NOTHING
+      // Moving directly to another client — do nothing
       if (next && next.classList && next.classList.contains("client")) {
         return;
       }
