@@ -12,7 +12,7 @@ body {
   padding: 0;
   font-family: "Diatype Variable", sans-serif;
   background-color: #fcfcfc;
-  color: #444444;
+  color: #111111;
   line-height: 1.1;
   overflow-x: hidden;
 
@@ -97,11 +97,11 @@ a:hover {
 
 /* HIGHLIGHTS */
 ::selection {
-  background: #000;
+  background: #bbbbbb;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #000;
+  background: #bbbbbb;
   color: #fff;
 }
