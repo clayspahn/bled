@@ -32,7 +32,7 @@ body {
 
 /* LINKS */
 a {
-  color: #444444;
+  color: #111111;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -97,11 +97,11 @@ a:hover {
 
 /* HIGHLIGHTS */
 ::selection {
-  background: #bbbbbb;
+  background: #aaaaaa;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #bbbbbb;
+  background: #aaaaaa;
   color: #fff;
 }
