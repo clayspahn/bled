@@ -66,8 +66,18 @@
 
   <!-- JS -->
   <script src="/script.js"></script>
+
+  <!-- Image preload -->
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelectorAll("[data-image]").forEach(el => {
+        const img = new Image();
+        img.src = el.dataset.image;
+      });
+    });
+  </script>
+
 </body>
 </html>
 
 </html>
-
