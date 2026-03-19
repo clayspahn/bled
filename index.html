@@ -76,6 +76,34 @@
     });
   </script>
 
+  <!-- Smart quotes fix -->
+  <script>
+    function smarten(text) {
+      return text
+        .replace(/(^|[\s(\[{])"/g, "$1“")
+        .replace(/"/g, "”")
+        .replace(/(^|[\s(\[{])'/g, "$1‘")
+        .replace(/'/g, "’");
+    }
+
+    function walk(node) {
+      const skipTags = ["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA"];
+
+      if (node.nodeType === 1 && skipTags.includes(node.tagName)) return;
+
+      if (node.nodeType === 3) {
+        node.nodeValue = smarten(node.nodeValue);
+      } else {
+        node.childNodes.forEach(walk);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      walk(document.body);
+    });
+  </script>
+
+
 </body>
 </html>
 
