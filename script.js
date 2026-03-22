@@ -25,31 +25,86 @@ document.addEventListener("DOMContentLoaded", () => {
     animateScroll();
   }
 
-  // Desktop-only client hover image swap
+  // Desktop-only client hover + carousel system
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!canHover) return;
 
   const homepageImage = document.getElementById("homepageImage");
-  const defaultSrc = homepageImage.src;
   const clients = document.querySelectorAll(".client");
+  const cursorLabel = document.getElementById("cursorLabel");
 
+  // --- DEFAULT CAROUSEL IMAGES ---
+  const defaultImages = [
+    "images/Bled-Home.jpg",
+    "images/default2.jpg",
+    "images/default3.jpg"
+  ];
+
+  let currentIndex = 0;
+  let mode = "default";
+
+  homepageImage.src = `/${defaultImages[currentIndex]}`;
+
+  function updateCursorText() {
+    cursorLabel.textContent = `${currentIndex + 1}/${defaultImages.length}`;
+  }
+
+  // follow mouse
+  window.addEventListener("mousemove", (e) => {
+    cursorLabel.style.left = e.clientX + "px";
+    cursorLabel.style.top = e.clientY + "px";
+  });
+
+  // CLICK → cycle carousel
+  homepageImage.addEventListener("click", () => {
+    if (mode !== "default") return;
+
+    currentIndex = (currentIndex + 1) % defaultImages.length;
+    homepageImage.src = `/${defaultImages[currentIndex]}`;
+    updateCursorText();
+  });
+
+  // AUTO-CYCLE
+  setInterval(() => {
+    if (mode !== "default") return;
+
+    currentIndex = (currentIndex + 1) % defaultImages.length;
+    homepageImage.src = `/${defaultImages[currentIndex]}`;
+    updateCursorText();
+  }, 4000);
+
+  // SHOW CURSOR LABEL
+  homepageImage.addEventListener("mouseenter", () => {
+    if (mode !== "default") return;
+    updateCursorText();
+    cursorLabel.style.opacity = 1;
+  });
+
+  homepageImage.addEventListener("mouseleave", () => {
+    cursorLabel.style.opacity = 0;
+  });
+
+  // HOVER BEHAVIOR
   clients.forEach(client => {
 
     client.addEventListener("mouseenter", () => {
       const img = client.getAttribute("data-image");
-      if (img) homepageImage.src = `/${img}`;
+      if (img) {
+        mode = "hover";
+        homepageImage.src = `/${img}`;
+        cursorLabel.style.opacity = 0;
+      }
     });
 
     client.addEventListener("mouseleave", (e) => {
       const next = e.relatedTarget;
 
-      // Moving directly to another client — do nothing
       if (next && next.classList && next.classList.contains("client")) {
         return;
       }
 
-      // Otherwise reset
-      homepageImage.src = defaultSrc;
+      mode = "default";
+      homepageImage.src = `/${defaultImages[currentIndex]}`;
     });
 
   });
