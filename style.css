@@ -102,12 +102,12 @@ a:hover {
 
 /* HIGHLIGHTS */
 ::selection {
-  background: #aaaaaa;
+  background: #111111;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #aaaaaa;
+  background: #111111;
   color: #fff;
 }
 
