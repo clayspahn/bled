@@ -10,7 +10,6 @@
 </head>
 <body>
 
-  <!-- Text / info section -->
   <main class="info">
     Bled™<br><br>
     Bled is a design studio working across print, object, screen, and space, partnering with clients in Art, Architecture, Fashion, Music, Tech, and Sustainability.<br><br>
@@ -58,15 +57,15 @@
     © MMXXVI
   </main>
 
-  <!-- Sticky / homepage image -->
   <figure class="homepage-image">
     <img id="homepageImage" src="images/Bled-Home.jpg" alt="Homepage image">
   </figure>
 
-  <!-- JS -->
+  <!-- CURSOR LABEL -->
+  <div id="cursorLabel">1/3</div>
+
   <script src="/script.js"></script>
 
-  <!-- Image preload -->
   <script>
     window.addEventListener("load", () => {
       document.querySelectorAll("[data-image]").forEach(el => {
@@ -76,7 +75,6 @@
     });
   </script>
 
-  <!-- Smart quotes fix -->
   <script>
     function smarten(text) {
       return text
@@ -88,7 +86,6 @@
 
     function walk(node) {
       const skipTags = ["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA"];
-
       if (node.nodeType === 1 && skipTags.includes(node.tagName)) return;
 
       if (node.nodeType === 3) {
@@ -103,8 +100,5 @@
     });
   </script>
 
-
 </body>
-</html>
-
 </html>
