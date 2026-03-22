@@ -56,6 +56,10 @@ a:hover {
   width: 100%;
   height: auto;
   display: block;
+  user-select: none;       /* prevents selection */
+  -webkit-user-drag: none; /* prevents dragging in Safari/Chrome */
+  -moz-user-drag: none;    /* prevents dragging in Firefox */
+  user-drag: none;         /* standard */
 }
 
 /* FADE IN EFFECT */
