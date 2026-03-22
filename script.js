@@ -55,7 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
     cursorLabel.style.top = e.clientY + "px";
   });
 
-  // CLICK → cycle carousel
+  // --- IMAGE HOVER (cursor replacement) ---
+  homepageImage.addEventListener("mouseenter", () => {
+    if (mode !== "default") return;
+
+    updateCursorText();
+    cursorLabel.style.opacity = 1;
+    document.body.style.cursor = "none"; // hide real cursor
+  });
+
+  homepageImage.addEventListener("mouseleave", () => {
+    cursorLabel.style.opacity = 0;
+    document.body.style.cursor = "default"; // restore cursor
+  });
+
+  // --- CLICK ONLY CAROUSEL ---
   homepageImage.addEventListener("click", () => {
     if (mode !== "default") return;
 
@@ -64,27 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCursorText();
   });
 
-  // AUTO-CYCLE
-  setInterval(() => {
-    if (mode !== "default") return;
-
-    currentIndex = (currentIndex + 1) % defaultImages.length;
-    homepageImage.src = `/${defaultImages[currentIndex]}`;
-    updateCursorText();
-  }, 4000);
-
-  // SHOW CURSOR LABEL
-  homepageImage.addEventListener("mouseenter", () => {
-    if (mode !== "default") return;
-    updateCursorText();
-    cursorLabel.style.opacity = 1;
-  });
-
-  homepageImage.addEventListener("mouseleave", () => {
-    cursorLabel.style.opacity = 0;
-  });
-
-  // HOVER BEHAVIOR
+  // --- HOVER BEHAVIOR ---
   clients.forEach(client => {
 
     client.addEventListener("mouseenter", () => {
@@ -93,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mode = "hover";
         homepageImage.src = `/${img}`;
         cursorLabel.style.opacity = 0;
+        document.body.style.cursor = "default";
       }
     });
 
