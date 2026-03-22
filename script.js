@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/Bled-Home3.jpg"
   ];
 
+  defaultImages.forEach(src => {
+  const img = new Image();
+  img.src = `/${src}`;
+});
+
   let currentIndex = 0;
   let mode = "default";
 
