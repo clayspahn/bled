@@ -118,3 +118,11 @@ a:hover {
   z-index: 9999;
   transform: translate(-50%, -50%);
 }
+
+.homepage-image,
+.homepage-image img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
