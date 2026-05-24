@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- DEFAULT CAROUSEL IMAGES ---
   const defaultImages = [
-    "images/Bled-Home.jpg",
+    "images/Bled-Home.webp",
     "images/Bled-Home2.jpg",
     "images/Bled-Home3.jpg"
   ];
